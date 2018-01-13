@@ -1,11 +1,11 @@
 <?php
 
-require_once('vendor/autoload.php')
+require_once('vendor/autoload.php');
 
-$app = new \Slim\Slim();
+$app = new \Slim\App;
 
 $app->get('/users', 'getUsers'); // Using Get HTTP Method and process getUsers function
-$app->run();
+
 
 $app->get('/', function ($request, $response, $args) {
     $response->write("Welcome to Slim!");
@@ -38,5 +38,7 @@ function getUsers() {
         echo '{"error":{"text":'. $e->getMessage() .'}}';
     }    
 }
+
+$app->run();
 
 ?>
